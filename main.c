@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include "./src/write.c"
 
 int main(){
 	int h,w;
@@ -21,7 +22,7 @@ int main(){
 	wrefresh(win);
 
 	int c;
-	char message[128];
+	char message[128] = {'\0'};
 	int cursorPos = 0;
 
 	for(;;){
@@ -30,19 +31,26 @@ int main(){
 	        wmove(win, h-2, cursorPos+2);
 
 		if(c == 10){
-			break;
+			write(message);
+			for(int i = 1; i<w-1; i++){
+				mvwaddch(win, h-2, i, ' ');
+			}
+			for (int i = 0; i < sizeof(message); i++) {
+				message[i] = '\0';
+			}
+			cursorPos = 0;
 		}else if(c == 127){
 			message[cursorPos] = '\0';
 			mvwdelch(win, h-2, cursorPos+1);
 			cursorPos -= 1;
-		}else if(c == KEY_ENTER){
-			break;
-		}else{
+		}
+		else{
 			message[cursorPos] = c;
 		    	mvwaddch(win, h-2, cursorPos+2, message[cursorPos]);
 			cursorPos += 1;
 		}
 		wrefresh(win);
+
 	}
 
 	endwin();
