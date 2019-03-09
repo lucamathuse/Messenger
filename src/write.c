@@ -4,7 +4,7 @@
 #include <curses.h>
 //#include "readText.c"
 
-int main()
+void write()
 {
   char nameuser[12];
   int userChoice;
@@ -14,20 +14,10 @@ int main()
 
   do
   {
-    char messageuser[127];
 
     FILE *fptr;
 
-    printf("Message: ");
-    for(;;) {
-        int c = getch();
-        if(c == 10){
-            break;
-          }
-        }
-
-
-    fptr = fopen("/Users/lucamathuse/Desktop/Private/Coding/C/messenger/chat.txt", "a");
+    fptr = fopen("chat.txt", "a");
     fprintf(fptr, "%s: %s\n", nameuser, messageuser);
     fclose(fptr);
 
