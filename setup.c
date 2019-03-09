@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+void setup()
 {
   FILE *fptr;
   int setupChoice = 0;
@@ -18,13 +18,10 @@ int main()
 
     fptr = fopen("./setup/linux.txt", "w");
     fprintf(fptr, "Linux");
-    fclose(fptr);
   }
   if (setupChoice == 2){
     fptr = fopen("./setup/mac.txt", "w");
     fprintf(fptr, "Mac");
-    fclose(fptr);
   }
-  return 0;
-
+  fclose(fptr);
 }

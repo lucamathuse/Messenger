@@ -1,8 +1,14 @@
 #include <ncurses.h>
+#include "setup.c"
 #include "./src/write.c"
 
 int main(){
 	int h,w;
+	int c;
+	char message[128];
+	int cursorPos = 0;
+
+	setup();	
 
 	initscr();
 	getmaxyx(stdscr, h, w);
@@ -21,9 +27,6 @@ int main(){
 	refresh();
 	wrefresh(win);
 
-	int c;
-	char message[128] = {'\0'};
-	int cursorPos = 0;
 
 	for(;;){
 		c = getch();
