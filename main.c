@@ -35,6 +35,8 @@ int main(){
 			message[cursorPos] = '\0';
 			mvwdelch(win, h-2, cursorPos+1);
 			cursorPos -= 1;
+		}else if(c == KEY_ENTER){
+			break;
 		}else{
 			message[cursorPos] = c;
 		    	mvwaddch(win, h-2, cursorPos+2, message[cursorPos]);
@@ -42,8 +44,6 @@ int main(){
 		}
 		wrefresh(win);
 	}
-
-	getch();
 
 	endwin();
 
