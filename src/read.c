@@ -9,7 +9,6 @@ void readChat()
   if(fptr == NULL)
   {
     printf("Something went wrong");
-    //exit(0);
   }
 
   c = fgetc(fptr);
