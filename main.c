@@ -31,7 +31,7 @@ int main(){
 
 		if(c == 10){
 			break;
-		}else if(c == KEY_BACKSPACE){
+		}else if(c == 127){
 			message[cursorPos] = '\0';
 			mvwdelch(win, h-2, cursorPos+1);
 			cursorPos -= 1;
