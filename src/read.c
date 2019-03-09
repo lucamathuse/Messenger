@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-void readChat()
+void read()
 {
   char c;
   FILE *fptr;
-  fptr = fopen("chat.txt","r");
+  fptr = fopen("./chat.txt","r");
 
   if(fptr == NULL)
   {
