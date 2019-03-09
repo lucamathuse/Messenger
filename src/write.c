@@ -4,8 +4,7 @@
 #include <curses.h>
 //#include "readText.c"
 
-void write()
-{
+void write(char message[128]) {
   char nameuser[12];
   int userChoice;
 
