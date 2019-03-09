@@ -9,7 +9,7 @@ int main(){
 	WINDOW *win = newwin(h,w,0,0);
 
 	noecho();
-
+	keypad(stdscr, TRUE);
 
 	wborder(win, ACS_BLOCK,ACS_BLOCK,ACS_BLOCK,ACS_BLOCK,ACS_BLOCK,ACS_BLOCK,ACS_BLOCK,ACS_BLOCK);
 
@@ -20,7 +20,7 @@ int main(){
 	refresh();
 	wrefresh(win);
 
-	char c;
+	int c;
 	char message[128];
 	int cursorPos = 0;
 
@@ -31,6 +31,10 @@ int main(){
 
 		if(c == 10){
 			break;
+		}else if(c == KEY_BACKSPACE){
+			message[cursorPos] = '\0';
+			mvwdelch(win, h-2, cursorPos+1);
+			cursorPos -= 1;
 		}else{
 			message[cursorPos] = c;
 		    	mvwaddch(win, h-2, cursorPos+2, message[cursorPos]);
