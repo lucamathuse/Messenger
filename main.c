@@ -7,7 +7,8 @@ int main(){
 	int h,w;
 	int c;
 	char message[128];
-	int cursorPos = 0;	
+	int cursorPos = 0;
+
 
 	initscr();
 	getmaxyx(stdscr, h, w);
@@ -29,7 +30,7 @@ int main(){
 
 	for(;;){
 		c = getch();
-		
+
 
 	        wmove(win, h-2, cursorPos+2);
 
@@ -46,7 +47,10 @@ int main(){
 			message[cursorPos] = '\0';
 			mvwdelch(win, h-2, cursorPos+1);
 			cursorPos -= 1;
+		}else  if(c == 27){
+			break;
 		}
+
 		else{
 			message[cursorPos] = c;
 		    	mvwaddch(win, h-2, cursorPos+2, message[cursorPos]);
