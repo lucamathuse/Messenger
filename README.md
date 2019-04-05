@@ -1,5 +1,5 @@
 # messenger
-Messenger made in C.
+Messenger made in c.
 # How to use the messenger
 1. Compile the file 'setup.c' with the command: `gcc setup.c`
 2. Run it with: `./a.out`
